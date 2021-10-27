@@ -8,7 +8,7 @@ public class PhoneCompanyInfo extends PhoneInfo implements Serializable
 	/**
 	 * 
 	 */
-	private static final long serialVersionUID = 7052627809763401790L;
+	//private static final long serialVersionUID = 7052627809763401790L;
 	String company;
 
 	public PhoneCompanyInfo(String name, String phoneNumber, String company)

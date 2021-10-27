@@ -9,7 +9,7 @@ public class PhoneSchoolInfo extends PhoneInfo implements Serializable
 	/**
 	 * 
 	 */
-	private static final long serialVersionUID = 8521236082401405622L;
+	//private static final long serialVersionUID = 8521236082401405622L;
 	String major;
 	int grade;
 	public PhoneSchoolInfo(String name, String phoneNumber, String major, int grade)

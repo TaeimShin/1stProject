@@ -242,6 +242,7 @@ public class PhoneBookManager implements MenuItem, SubMenuItem
 			ObjectInputStream in = 
 					new ObjectInputStream(
 							new FileInputStream("src/project1/ver08/PhoneBook.obj"));
+							//new FileInputStream("src/project1/ver08/AutoSaveBook.txt"));
 					
 			while(true) {
 				Object ob = in.readObject();

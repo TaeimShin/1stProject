@@ -13,10 +13,9 @@ public class AutoSaverT extends Thread
 		while(true)
 		{
 			try {
-				ObjectOutputStream out =
+				ObjectOutputStream out=
 						new ObjectOutputStream(
 								new FileOutputStream("src/project1/ver08/AutoSaveBook.txt"));
-				
 				HashSet<Object> pi = new HashSet<Object>(100);
 				pi = PhoneBookManager.pi1;
 				Iterator itr = pi.iterator();
@@ -25,6 +24,7 @@ public class AutoSaverT extends Thread
 					Object object = itr.next();
 					out.writeObject(object);	
 				}
+				out.close();
 				Thread.sleep(5000);
 				System.out.println("주소록이 텍스트로 자동저장되었습니다.");
 			}
