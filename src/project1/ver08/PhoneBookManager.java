@@ -49,11 +49,11 @@ public class PhoneBookManager implements MenuItem, SubMenuItem
 			System.out.print("전화번호:");
 			String phone = scan1.nextLine();
 			
-			if(i == SubMenuItem.NORMAL_TYPE)
+			if(i == SubMenuItem.NORMAL_TYPE) ///////일반데이터
 			{
 				pi2 = new PhoneInfo(name,phone);
 			}
-			else if(i == SubMenuItem.SCHOOL_TYPE)
+			else if(i == SubMenuItem.SCHOOL_TYPE) ////////학교데이터
 			{
 				System.out.print("전공:");
 				String major= scan1.nextLine();
@@ -63,7 +63,7 @@ public class PhoneBookManager implements MenuItem, SubMenuItem
 				PhoneSchoolInfo pi3 = new PhoneSchoolInfo(name,phone,major,grade);
 				pi2 = pi3;
 			}
-			else if(i == SubMenuItem.COMPANY_TYPE)
+			else if(i == SubMenuItem.COMPANY_TYPE)//////////회사데이터
 			{
 				System.out.print("회사:");
 				String company= scan1.nextLine();
@@ -102,16 +102,17 @@ public class PhoneBookManager implements MenuItem, SubMenuItem
 		
 		System.out.print("이름:");
 		String name = scan.nextLine();
-		int flag = 0;
+		int flag = 0; // 찾고자 하는 정보가 있는지 없는지 오류 판별용 변수
 		try {
 			
 			Iterator itr = pi1.iterator();
-			while(itr.hasNext()) {
+			while(itr.hasNext()) { /////////////데이터 하나씩 꺼내서
 				PhoneInfo object = (PhoneInfo)itr.next();
 				
-				if(object.name.equals(name))
+				if(object.name.equals(name)) ///////name이 같은지 판별
 				{
-					flag = 1;
+					flag = 1; // 일치하는 데이터가 있으니 변수값 변경
+					/////////////찾은 데이터 출력부분////////
 					if(object instanceof PhoneCompanyInfo)
 						((PhoneCompanyInfo)object).showPhoneInfo();
 					else if(object instanceof PhoneSchoolInfo)
@@ -120,7 +121,7 @@ public class PhoneBookManager implements MenuItem, SubMenuItem
 						((PhoneInfo)object).showPhoneInfo();
 				}
 			}
-			if(flag == 0)
+			if(flag == 0) // 일치하는 데이터가 없다면/ 잘못 입력했다면 예외처리로 throw
 				throw new NullPointerException();
 		}
 		catch(NullPointerException e)
@@ -137,22 +138,22 @@ public class PhoneBookManager implements MenuItem, SubMenuItem
 
 		System.out.print("이름:");
 		String name = scan.nextLine();
-		////////// 임시변수
+		////////// 오류 확인용 변수 flag
 		int flag =0;
 		////////
 		try {
 			Iterator itr = pi1.iterator();
-			while(itr.hasNext()) {
+			while(itr.hasNext()) { //객체에서 하나씩 object꺼내서 
 				PhoneInfo object = (PhoneInfo)itr.next();
 
-				if(object.name.equals(name))
+				if(object.name.equals(name)) // 찾고자하는 이름과 일치하는지 확인
 				{
 					flag =1;
 					itr.remove();
 				}
 			}
 
-			if(flag == 0)
+			if(flag == 0) //일치하는게 없다면 오류발생 throw
 				throw new NullPointerException();
 		}
 		catch(NullPointerException e)
@@ -167,7 +168,7 @@ public class PhoneBookManager implements MenuItem, SubMenuItem
 		System.out.println("");
 		
 		Iterator itr = pi1.iterator();
-		while(itr.hasNext())
+		while(itr.hasNext()) 
 		{
 			Object object = itr.next();
 			if(object instanceof PhoneCompanyInfo)
@@ -190,22 +191,23 @@ public class PhoneBookManager implements MenuItem, SubMenuItem
 		int saveOption = scan.nextInt();	
 		try {
 			
-			if(saveOption == 1) //쓰레드가 시작된다
+			if(saveOption == 1) //자동 저장 on
 			{
-				if(Thread.activeCount() == 2)
+				if(Thread.activeCount() == 2) /* 실행중인 thread의 갯수가 2개라면 이미 실행중
+					main으로 돌아가는 쓰레드, 1개만 돌아가야함*/
 				{
 					System.out.println("이미 자동저장이 실행중입니다.");
 				}
-				else{
+				else{ // 자동저장 쓰레드 생성, 실행
 					dt = new AutoSaverT();
 					dt.setDaemon(true);
 					System.out.println("자동저장을 시작합니다.");
 					dt.start();
 				}
 			}
-			else if(saveOption == 2)//쓰레드가 중지된다
+			else if(saveOption == 2)//자동저장 off
 			{
-				dt.interrupt();
+				dt.interrupt(); 
 			}
 			else
 				throw new NullPointerException();
