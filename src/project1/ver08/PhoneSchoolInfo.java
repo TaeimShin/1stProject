@@ -2,8 +2,14 @@ package project1.ver08;
 
 import java.io.Serializable;
 
+
 public class PhoneSchoolInfo extends PhoneInfo implements Serializable
 {
+
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 8521236082401405622L;
 	String major;
 	int grade;
 	public PhoneSchoolInfo(String name, String phoneNumber, String major, int grade)
@@ -13,7 +19,8 @@ public class PhoneSchoolInfo extends PhoneInfo implements Serializable
 		this.grade = grade;
 	}
 	
-	public void showPhoneSchoolInfo() {
+	@override
+	public void showPhoneInfo() {
 		System.out.println("이름:"+name);
 		System.out.println("전화번호:"+phoneNumber);
 		System.out.println("전공:"+ major);

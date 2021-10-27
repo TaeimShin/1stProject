@@ -2,8 +2,13 @@ package project1.ver08;
 
 import java.io.Serializable;
 
+
 public class PhoneInfo implements Serializable
 {
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 5261161644518495650L;
 	String name; //이름
 	String phoneNumber; //전화번호 
 	

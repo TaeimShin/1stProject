@@ -2,8 +2,13 @@ package project1.ver08;
 
 import java.io.Serializable;
 
+
 public class PhoneCompanyInfo extends PhoneInfo implements Serializable
 {
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 7052627809763401790L;
 	String company;
 
 	public PhoneCompanyInfo(String name, String phoneNumber, String company)
@@ -11,8 +16,8 @@ public class PhoneCompanyInfo extends PhoneInfo implements Serializable
 		super(name, phoneNumber);
 		this.company = company;
 	}
-	
-	public void showPhoneCompanyInfo() {
+	@override
+	public void showPhoneInfo() {
 		System.out.println("이름:"+name);
 		System.out.println("전화번호:"+phoneNumber);
 		System.out.println("회사:"+company);

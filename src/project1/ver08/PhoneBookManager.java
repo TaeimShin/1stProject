@@ -52,7 +52,6 @@ public class PhoneBookManager implements MenuItem, SubMenuItem
 			if(i == SubMenuItem.NORMAL_TYPE)
 			{
 				pi2 = new PhoneInfo(name,phone);
-				//pi1[inputVariable] = pi2;
 			}
 			else if(i == SubMenuItem.SCHOOL_TYPE)
 			{
@@ -63,7 +62,6 @@ public class PhoneBookManager implements MenuItem, SubMenuItem
 		
 				PhoneSchoolInfo pi3 = new PhoneSchoolInfo(name,phone,major,grade);
 				pi2 = pi3;
-				//pi1[inputVariable] = pi2;
 			}
 			else if(i == SubMenuItem.COMPANY_TYPE)
 			{
@@ -71,7 +69,6 @@ public class PhoneBookManager implements MenuItem, SubMenuItem
 				String company= scan1.nextLine();
 				PhoneCompanyInfo pi3 = new PhoneCompanyInfo(name,phone,company);
 				pi2 = pi3;
-				//pi1[inputVariable] = pi2;
 			}
 			else {
 				throw new NullPointerException();
@@ -116,9 +113,9 @@ public class PhoneBookManager implements MenuItem, SubMenuItem
 				{
 					flag = 1;
 					if(object instanceof PhoneCompanyInfo)
-						((PhoneCompanyInfo)object).showPhoneCompanyInfo();
+						((PhoneCompanyInfo)object).showPhoneInfo();
 					else if(object instanceof PhoneSchoolInfo)
-						((PhoneSchoolInfo)object).showPhoneSchoolInfo();
+						((PhoneSchoolInfo)object).showPhoneInfo();
 					else
 						((PhoneInfo)object).showPhoneInfo();
 				}
@@ -174,11 +171,12 @@ public class PhoneBookManager implements MenuItem, SubMenuItem
 		{
 			Object object = itr.next();
 			if(object instanceof PhoneCompanyInfo)
-				((PhoneCompanyInfo)object).showPhoneCompanyInfo();
+				((PhoneCompanyInfo)object).showPhoneInfo();
 			else if(object instanceof PhoneSchoolInfo)
-				((PhoneSchoolInfo)object).showPhoneSchoolInfo();
+				((PhoneSchoolInfo)object).showPhoneInfo();
 			else
 				((PhoneInfo)object).showPhoneInfo();
+			System.out.println("");
 			
 		}
 	}
