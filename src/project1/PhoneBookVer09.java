@@ -25,7 +25,7 @@ public class PhoneBookVer09
 				pbm.dataInput();
 				
 			}
-			else if(choice == 2)
+			else if(choice == 2) //
 			{
 				pbm.dataSearch();
 			}
