@@ -26,7 +26,7 @@ public class PhoneBookManager extends IConnectImpl
 		
 		System.out.println("데이터 입력을 시작합니다..");
 		Scanner scan = new Scanner(System.in);
-		
+		//////쿼리문
 		String sql = "INSERT INTO phonebook_tb VALUES "
 				+ "(?,?,?)";
 		
@@ -56,6 +56,7 @@ public class PhoneBookManager extends IConnectImpl
 			Statement stmt = con.createStatement();
 			
 			String searchName = scanValue("검색할이름");
+			//////쿼리문
 			String sql = "SELECT name, phone, birth "
 					+ "FROM phonebook_tb WHERE name  "
 					+ "LIKE '%" +searchName + "%'";
@@ -85,7 +86,7 @@ public class PhoneBookManager extends IConnectImpl
 		System.out.println("데이터 삭제를 시작합니다..");
 		
 		
-		try {
+		try { ////쿼리문
 			String sql = "DELETE FROM phonebook_tb WHERE name=?";
 			
 			psmt = con.prepareStatement(sql);
@@ -103,7 +104,7 @@ public class PhoneBookManager extends IConnectImpl
 		try {
 			Statement stmt = con.createStatement();
 			
-			
+			///쿼리문
 			String sql = "SELECT name, phone, birth "
 					+ "FROM phonebook_tb ";
 					

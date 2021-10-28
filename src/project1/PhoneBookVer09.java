@@ -10,7 +10,7 @@ public class PhoneBookVer09
 
 	public static void main(String[] args)
 	{
-		//PhoneInfo[] pi1 = new PhoneInfo[100];
+		
 		PhoneBookManager pbm = new PhoneBookManager();
 		
 		while(true)
@@ -20,12 +20,12 @@ public class PhoneBookVer09
 			pbm.printMenu();
 			int choice = scan.nextInt();
 			
-			if(choice == 1) //데이터 입력
+			if(choice == 1) 
 			{
 				pbm.dataInput();
 				
 			}
-			else if(choice == 2) //
+			else if(choice == 2) 
 			{
 				pbm.dataSearch();
 			}
