@@ -60,7 +60,7 @@ public class PhoneBookManager extends IConnectImpl
 					+ "FROM phonebook_tb WHERE name  "
 					+ "LIKE '%" +searchName + "%'";
 			
-			System.out.println("쿼리문:"+ sql);
+			//System.out.println("쿼리문:"+ sql);
 			
 			rs = stmt.executeQuery(sql);
 			System.out.println("이름  전화번호  생일");
@@ -108,7 +108,7 @@ public class PhoneBookManager extends IConnectImpl
 					+ "FROM phonebook_tb ";
 					
 			
-			System.out.println("쿼리문:"+ sql);
+			//System.out.println("쿼리문:"+ sql);
 			
 			rs = stmt.executeQuery(sql);
 			System.out.println("이름  전화번호  생일");
